@@ -4,8 +4,7 @@
   <br>
   <hr>
   <div id="linkto"><%= link_to 'Add Your Review', new_recommendation_path %></div>
-<hr>
-<div id="table">
+  <hr>
   <div class="row tableheader">
     <div class="col header">Name</div>
     <div class="col header">Location</div>
@@ -14,17 +13,17 @@
     <div class="col header"></div>
   </div>
   <% @recommendations.each do |recommendation| %>
-    <div class="row">
-      <div class="col nameheader"><%= recommendation.name %></div>
-      <div class="col"><%= recommendation.location %></div>
-      <div class="col"><%= recommendation.rating %></div>
-      <div class="col"><%= recommendation.review %></div>
-      <div class="col">
-        <div id="linkback"><%= link_to 'Read Review', recommendation_path(recommendation) %></div>
-        <div id="linkback"><%= link_to 'Edit Review', edit_recommendation_path(recommendation) %></div>
-        <div id="linkback"><%= link_to 'Delete Review', recommendation_path(recommendation), method: :delete, data: { confirm: 'Are you sure?' } %></div>
-      </div>
+  <div class="row">
+    <div class="col nameheader"><%= recommendation.name %></div>
+    <div class="col"><%= recommendation.location %></div>
+    <div class="col"><%= recommendation.rating %></div>
+    <div class="col"><%= recommendation.review %></div>
+    <div class="col">
+      <div id="linkback"><%= link_to 'Read Review', recommendation_path(recommendation) %></div>
+      <div id="linkback"><%= link_to 'Edit Review', edit_recommendation_path(recommendation) %></div>
+      <div id="linkback"><%= link_to 'Delete Review', recommendation_path(recommendation), method: :delete, data: { confirm: 'Are you sure?' } %></div>
     </div>
+  </div>
   <% end %>
 </div>
 </body>
