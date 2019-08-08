@@ -1,0 +1,84 @@
+<div class="container">
+  <h1>Edit Review</h1>
+
+<%= form_with(model: @recommendation, local: true) do |form| %>
+
+  <% if @recommendation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@recommendation.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @recommendation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </p>
+
+    <p>
+      <%= form.label :location %><br>
+      <%= form.text_field :location %>
+    </p>
+    <p>
+      <%= form.label :rating %><br>
+      <%= form.text_field :rating %>
+    </p>
+
+    <p>
+      <%= form.label :review %><br>
+      <%= form.text_area :review %>
+    </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+</div>
+
+<style>
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5%;
+  }
+  h1, h3, #linkto {
+    text-align: center;
+    margin: 0 auto;
+  }
+  #linkback {
+    text-align: center;
+    margin: 0 auto;
+  }
+  p {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  label {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  input#recommendation_name, input#recommendation_location, input#recommendation_rating, textarea#recommendation_review {
+    border: 1px black solid;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    font-size: 1.4em;
+  }
+  #linkback, #submit {
+    border: 2px black outset;
+    background-color: lightgrey;
+    padding: 1%;
+    border-radius: 10%;
+    width: 30%;
+  }
+</style>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FinalApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Oswald&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <ul class="nav bg-dark justify-content-center">
+        <li class="nav-item p-3 display-4">
+          <%= link_to "Razorback Restaurants", recommendations_path %>
+        </li>
+      </ul>
+    </header>
+    <%= yield %>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0 auto;
+    background-color: #F3BCBC;
+    padding: 0;
+    padding-bottom: 100px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1em;
+  }
+.nav {
+  border-bottom: 2px lightgrey solid;
+}
+a {
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Shadows Into Light', cursive;
+  color: lightgrey;
+  text-shadow: 2px 2px black;
+}
+a:hover {
+  text-decoration: none;
+  color: white;
+
+}
+li {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+}
+ul {
+  width:100%;
+  mar
+}
+
+</style>

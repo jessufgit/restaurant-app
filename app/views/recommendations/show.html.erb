@@ -1,0 +1,90 @@
+<div class="container">
+  <h2><%= @recommendation.name %> Review</h2>
+  <p>
+    <strong>Name:</strong>
+    <%= @recommendation.name %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= @recommendation.location %>
+  </p>
+  <p>
+    <strong>Rating:</strong>
+    <%= @recommendation.rating %>
+  </p>
+  <p>
+    <strong>Review:</strong>
+    <%= @recommendation.review %>
+  </p>
+  <br>
+  <hr>
+  <br>
+  <h2>Comments</h2>
+<% @recommendation.comments.each do |comment| %>
+  <p>
+    <strong>Name:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+<br>
+<hr>
+<br>
+  <div class="comment_field">
+    <div class="form">
+      <h3>Add a comment:</h3>
+    <%= form_with(model: [ @recommendation, @recommendation.comments.build ], local: true) do |form| %>
+    <p>
+      <%= form.label :Name %><br>
+      <%= form.text_field :commenter %>
+    </p>
+    <p>
+      <%= form.label :Comment %><br>
+      <%= form.text_area :body %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+    <% end %>
+    </div>
+  </div>
+  <br>
+  <div id="linkback"><%= link_to 'Back To List', recommendations_path %></div>
+</div>
+
+<style>
+  #linkback, h2 {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5%;
+  }
+  .comment_field {
+    border: 2px black outset;
+  }
+  p, h3 {
+    font-size: 1.3em;
+  }
+  #linkback {
+    border: 2px black outset;
+    background-color: lightgrey;
+    padding: 1%;
+    border-radius: 10%;
+    width: 30%;
+  }
+  .form {
+    margin: 2%;
+  }
+  input#comment_commenter, textarea#comment_body {
+    width: 100%;
+    font-size: 1.3em;
+  }
+</style>
